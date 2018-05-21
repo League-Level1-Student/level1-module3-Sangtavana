@@ -29,11 +29,16 @@ public class SimonSays extends KeyAdapter {
  	private int simonSays = 0;
  	Date timeAtStart;
  	private  void makeAlbum() {
-
+JFrame jj= new JFrame();
+jj.setVisible(true);
+jj.pack();
  // 2. add 4 images which match keyboard keys like this: images.put(new Integer(KeyEvent.VK_UP), "image.jpg");
-  	
+images.put(new Integer(KeyEvent.VK_UP), "Up.png");
+images.put(new Integer(KeyEvent.VK_DOWN), "th.jpg");
+images.put(new Integer(KeyEvent.VK_RIGHT), "Right.jpg");
+images.put(new Integer(KeyEvent.VK_LEFT), "computer_key_Arrow_Left.png");
  // 3. Tell the user to "Press the matching key when 'Simon says' otherwise press a different key"
- 
+ JOptionPane.showMessageDialog(null, "Press the mathching key when 'Simons says' otherwise press a different key" );
  // 4. call the method to show an image
 
  	}
