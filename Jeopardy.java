@@ -52,36 +52,50 @@ frame.setVisible(true);
 		JPanel jp=  createHeader("Math");
 		 
 		// 4. Add the header component to the quizPanel
-		jp.add(quizPanel);
+		quizPanel.add(jp);
 		// 5. Add the quizPanel to the frame
 frame.add(quizPanel);
 		
 		// 6. Use the createButton method to set the value of firstButton 
-	JButton first= new JButton();
+	firstButton=createButton("$200");
 	
 	// 7. Add the firstButton to the quizPanel
-		quizPanel.add(first);
+		quizPanel.add(firstButton);
+
+
+
 		// 8. Write the code inside the createButton() method below. Check that your game looks like Figure 1 in the Jeopardy Handout - http://bit.ly/1bvnvd4.
-		
+
 		// 9. Use the secondButton variable to hold a button using the createButton method
+		secondButton=createButton("$400");
 		
 		// 10. Add the secondButton to the quizPanel
-		
+		quizPanel.add(secondButton);
 		// 11. Add action listeners to the buttons (2 lines of code)
-	
+	firstButton.addActionListener(this);
+secondButton.addActionListener(this);
+thirdButton=createButton("$600");
+quizPanel.add(thirdButton);
+thirdButton.addActionListener(this);
+fourthButton=createButton("$1000");
+quizPanel.add(fourthButton);
+fourthButton.addActionListener(this);
+
 
 		// 12. Fill in the actionPerformed() method below
 				
-		frame.pack();
-		quizPanel.setLayout(new GridLayout(buttonCount+1, 3));
+		
+quizPanel.setLayout(new GridLayout(buttonCount+1, 3));
 		frame.add(makeScorePanel(), BorderLayout.NORTH);
 		frame.setSize(Toolkit.getDefaultToolkit().getScreenSize().height, Toolkit.getDefaultToolkit().getScreenSize().width);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.pack();
 	}
 
 	/*
 	 * 13. Use the method provided to play the Jeopardy theme music 
 	 * 
+	 
 	 * 14. Add buttons so that you have $200, $400, $600, $800 and $1000 questions
 	 *
 	 * [optional] Use the showImage or playSound methods when the user answers a question 
@@ -89,25 +103,25 @@ frame.add(quizPanel);
 	
 	private JButton createButton(String dollarAmount) {
 		// Create a new JButton
-		
+		JButton b= new JButton();
 		// Set the text of the button to the dollarAmount
-		
+		b.setText(dollarAmount);
 		// Increment the buttonCount (this should make the layout vertical)
-	
+buttonCount+=1;
 		// Return your new button instead of the temporary button
 		
-		return new JButton("temporary button");
+		return b;
 	}
 
 	public void actionPerformed(ActionEvent arg0) {
 		// Remove this temporary message:
-		JOptionPane.showMessageDialog(null,"pressed " + ((JButton)arg0.getSource()).getText() + " button");
+	//JOptionPane.showMessageDialog(null,"Button" + ((JButton)arg0.getSource()).getText() + " button");
 
 		// Use the method that plays the jeopardy theme music.
-
+playJeopardyTheme();
 		JButton buttonPressed = (JButton) arg0.getSource();
 		// If the buttonPressed was the firstButton
-		
+		buttonPressed.add(firstButton);
 			// Call the askQuestion() method
 			
 			// Fill in the askQuestion() method. When you play the game, the score should change.
