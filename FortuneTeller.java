@@ -54,17 +54,24 @@ System.out.println(mouseY);
    	 int secretLocationY = 170;
    	 /** If the mouse co-ordinates and secret location are close, we'll let them ask a question. */
    	 if (areClose(mouseX, secretLocationX) && areClose(mouseY, secretLocationY)) {
-   		 // 8. Get the user to enter a question for the fortune teller
-String ask=JOptionPane.showInputDialog("Enter a question if your choose to be with your future");
+   		
    		 // 9. Find a spooky sound and put it in your default package (freesound.org)
-JApplet.newAudioClip(getClass().getResource("creepy-noise.wav"));
+AudioClip sound= JApplet.newAudioClip(getClass().getResource("creepy-noise.wav"));
    		 // AudioClip sound = JApplet.newAudioClip(getClass().getResource("creepy-noise.wav"));
    		 // 10. Play the sound
-
+sound.play();
    		 // 11. Use the pause() method below to wait until your music has finished
-
+pause(20);
    		 // 12. Insert your completed Magic 8 ball recipe (http://bit.ly/Zdrf6d) here
+JOptionPane.showInputDialog("Do you want to know your luck this year?");
+	Random r= new Random();
+int m= r.nextInt();
 
+	if(m<15){
+		System.out.println("You're destiny is still in hold.");
+	}else{
+System.out.println("This year would bring luck and advenrture.");
+	}
    	 }
 
     }
@@ -84,6 +91,8 @@ JApplet.newAudioClip(getClass().getResource("creepy-noise.wav"));
     /**************** don't worry about the stuff under here *******************/
     
     BufferedImage fortuneTellerImage;
+
+	private String ask;
 
     public static void main(String[] args) throws Exception {
    	 SwingUtilities.invokeLater(new FortuneTeller());

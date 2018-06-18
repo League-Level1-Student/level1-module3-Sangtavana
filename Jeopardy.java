@@ -123,7 +123,7 @@ playJeopardyTheme();
 		// If the buttonPressed was the firstButton
 		buttonPressed.add(firstButton);
 			// Call the askQuestion() method
-			
+			askQuestion(null, null, buttonCount);
 			// Fill in the askQuestion() method. When you play the game, the score should change.
 		
 		// Or if the buttonPressed was the secondButton
@@ -138,11 +138,16 @@ playJeopardyTheme();
 
 	private void askQuestion(String question, String correctAnswer, int prizeMoney) {
 		// Remove this temporary message
-		JOptionPane.showMessageDialog(null, "this is where the question will be asked");
+
 		// Use a pop up to ask the user the question
+		JOptionPane.showInputDialog("What is x/3=5/15?");
+
+	// If the answer is correct
+
 	
-		// If the answer is correct
-		
+		 
+	 
+	 
 			// Increase the score by the prizeMoney
 			
 			// Call the updateScore() method
